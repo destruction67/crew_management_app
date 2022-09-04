@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import {
-  FontAwesomeIcon,
-  FontAwesomeLayersText,
-  FontAwesomeLayers,
+    FontAwesomeIcon,
+    FontAwesomeLayersText,
+    FontAwesomeLayers,
 } from '@fortawesome/vue-fontawesome';
 
 // Base Component Import
@@ -11,6 +11,8 @@ import {
 
 //Globals
 import BaseLoader from '@/components/base/BaseLoader';
+import BaseAppFooter from "@/components/base/BaseAppFooter";
+import BaseTable from "@/components/base/BaseTable";
 //end Globals
 
 // Base Buttons import
@@ -28,34 +30,36 @@ import BaseOutlineButton from '@/components/base/buttons/BaseOutlineButton';
 
 
 export const ComponentConfig = {
-  pluginComponents() {
-    Vue.component('font-awesome-icon', FontAwesomeIcon);
-    Vue.component('font-awesome-layers', FontAwesomeLayers);
-    Vue.component('font-awesome-layers-text', FontAwesomeLayersText);
-  },
+    pluginComponents() {
+        Vue.component('font-awesome-icon', FontAwesomeIcon);
+        Vue.component('font-awesome-layers', FontAwesomeLayers);
+        Vue.component('font-awesome-layers-text', FontAwesomeLayersText);
+    },
 
-  baseComponent() {
-    //Base Components
-    // end Base Components
+    baseComponent() {
+        //Base Components
+        // end Base Components
 
-    //Global Components
-    Vue.component('base-loader', BaseLoader);
-    //end Global Components
+        //Global Components
+        Vue.component('base-loader', BaseLoader);
+        Vue.component('base-app-footer', BaseAppFooter);
+        Vue.component('base-table', BaseTable);
+        //end Global Components
 
-    // Base Button
-    Vue.component('base-primary-btn', BasePrimaryButton);
-    Vue.component('base-danger-btn', BaseDangerButton);
-    Vue.component('base-secondary-btn', BaseSecondaryButton);
-    Vue.component('base-success-btn', BaseSuccessButton);
-    Vue.component('base-info-btn', BaseInfoButton);
-    Vue.component('base-warning-btn', BaseWarningButton);
-    Vue.component('base-button',BaseButton)
-    Vue.component('base-modal-button',BaseModalButton)
+        // Base Button
+        Vue.component('base-primary-btn', BasePrimaryButton);
+        Vue.component('base-danger-btn', BaseDangerButton);
+        Vue.component('base-secondary-btn', BaseSecondaryButton);
+        Vue.component('base-success-btn', BaseSuccessButton);
+        Vue.component('base-info-btn', BaseInfoButton);
+        Vue.component('base-warning-btn', BaseWarningButton);
+        Vue.component('base-button',BaseButton)
+        Vue.component('base-modal-button',BaseModalButton)
 
-    Vue.component('base-outline-button', BaseOutlineButton);
-    // end Base Buttons
+        Vue.component('base-outline-button', BaseOutlineButton);
+        // end Base Buttons
 
-  },
+    },
 
 };
 

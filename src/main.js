@@ -24,6 +24,9 @@ import 'popper.js';
 import __ from 'lodash';
 import $ from 'jquery';
 
+import {GlobalService} from "@/service/GlobalService";
+import {AlertService} from "@/service/AlertService";
+
 // IDLE SESSION START
 import IdleVue from 'idle-vue';
 
@@ -54,6 +57,11 @@ ComponentConfig.baseComponent();
 AppConfig.appSweetAlert2();
 AppConfig.appProgressBar();
 AppConfig.elementFocus();
+
+GlobalService.initializeAxios()
+AlertService.initializeSwal()
+
+
 
 
 new Vue({
