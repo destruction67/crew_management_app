@@ -1,5 +1,6 @@
 import {AuthenticationService} from "@/service/AuthenticationService";
-import {USER_DETAILS} from "@/service/ConstantService";
+import {CM} from "@/service/ConstantService";
+import {GlobalService} from "@/service/GlobalService";
 
 const state = {
     user: false,
@@ -24,7 +25,7 @@ const actions = {
     },
 
     pullUserDetails ({ commit }) {
-        commit('setUser', JSON.parse(localStorage.getItem(USER_DETAILS)))
+        commit('setUser', JSON.parse(localStorage.getItem(CM.USER_DETAILS)))
     },
 
 
@@ -33,7 +34,7 @@ const actions = {
 
 
 const getters = {
-    user: state => state.user,
+    user: state => GlobalService.capitalizeProperties(state.user),
 };
 
 

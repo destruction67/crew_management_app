@@ -4,10 +4,13 @@ import HomeView from '../views/HomeView.vue'
 import Login from "@/views/Login";
 import Main from "@/views/Main";
 import Home from "@/views/main/Home";
-import {TOKEN_NAME} from "@/service/ConstantService";
+import {CM} from "@/service/ConstantService";
 
 // Masterlist
-import Crew from "@/views/masterlist/Crew";
+import MasterList from "@/views/MasterList";
+import CrewMasterList from "@/views/masterlist/Crew";
+import CrewList from '@/components/modules/masterlist/crew/List';
+
 
 Vue.use(VueRouter)
 
@@ -34,9 +37,26 @@ const routes = [
       },
 
       {
-        path: '/crew',
-        name: 'Crew',
-        component: Crew,
+        path: '/masterlist',
+        name: 'Masterlist',
+        component: MasterList,
+        redirect: 'masterlist/crew',
+        children:
+            [
+              {
+                path : 'crew',
+                name : 'CrewMasterList',
+                component: CrewMasterList,
+                redirect: 'crew/list',
+                children: [
+                  {
+                    path: 'list',
+                    name: 'CrewList',
+                    component: CrewList,
+                  },
+                ]
+              },
+            ]
       },
 
     ]
@@ -106,7 +126,7 @@ const router = new VueRouter({
 
 router.beforeEach(function(to, from, next) {
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (localStorage.getItem(TOKEN_NAME) != null) {
+    if (localStorage.getItem(CM.TOKEN_NAME) != null) {
       next();
       return;
     }

@@ -54,6 +54,24 @@ export const GlobalService = {
         }
     },
 
+    handleRequestErrors(errorMessages, source) {
+        let message = "";
+        if(errorMessages) {
+            Object.keys(errorMessages).forEach((key, index) => {
+                message += `<p class="text-left">${index + 1}. ${errorMessages[key]}</p>`;
+            });
+        }
+        AlertService.errorAlert(message, source);
+    },
+
+    parseErrors(errors) {
+        let errorMessages = [];
+        errors = errors.hasOwnProperty('errors') ? errors.errors : errors;
+        Object.keys(errors).forEach(column => errorMessages[column] = errors[column].join(', '));
+        return { errors: errorMessages };
+    },
+
+
     capitalizeProperties(value, except) {
         try {
             Object.keys(value).forEach(key => {

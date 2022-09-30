@@ -3,11 +3,8 @@
 </template>
 
 <script>
-import {mapActions} from "vuex";
-
 export default {
-  name: "Crew",
-
+  name: "MasterList",
 
   /** mixins **/
   mixins: [],
@@ -16,36 +13,27 @@ export default {
   props: {},
 
   /** data **/
-  data () {
-    return {}
+  data() {
+    return {};
   },
 
   /** methods**/
-  methods: {
-    ...mapActions([
-    ])
-  },
+  methods: {},
 
   /**  computed  **/
   computed: {},
 
   /** mounted **/
-  mounted () {
-  },
+  mounted() {},
 
   /** created **/
-  created () {
-  },
+  created() {},
 
   /** watch **/
   watch: {},
 
   /** destroyed **/
-  destroyed () {
-  },
-
-
-
+  destroyed() {},
 }
 </script>
 

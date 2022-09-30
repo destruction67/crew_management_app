@@ -2,7 +2,10 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import LoginModule from "@/store/modules/LoginModule";
+import ObjectKeyModule from "@/store/modules/ObjectKeyModule";
 
+// masterlist
+import CrewModule from "@/store/modules/masterlist/CrewModule";
 
 Vue.use(Vuex)
 
@@ -21,5 +24,7 @@ export default new Vuex.Store({
   },
   modules: {
     LoginModule,
+    CrewModule,
+    ObjectKeyModule,
   }
 })

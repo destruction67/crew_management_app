@@ -1,4 +1,5 @@
 import {AlertService} from "@/service/AlertService";
+import {mapGetters, mapActions} from "vuex";
 
 export const vueAppMixin = {
 
@@ -46,14 +47,18 @@ export const vueAppMixin = {
 
     errorAlert (message, actionType) {
       AlertService.errorAlert(message, actionType)
-    }
+    },
+
+    userFullName() {
+      return this.authUser;
+    },
 
   },
 
+
   computed: {
-    currentRouteName () {
-      // eslint-disable-next-line no-unused-expressions
-      this.$route.name
-    }
+    ...mapGetters([
+      'authUser',
+    ]),
   }
 }
