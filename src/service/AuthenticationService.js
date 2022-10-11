@@ -7,29 +7,16 @@ import {AlertService} from "@/service/AlertService";
 
 export const AuthenticationService = {
 
-    setHeader (token) {
-        axios.defaults.headers.common.Authorization = `Bearer ${token}`
-    },
-
-    deleteHeader () {
-        delete axios.defaults.headers.common.Authorization
-    },
-
-    clearStorage () {
-        localStorage.clear(CM.TOKEN_NAME)
-        localStorage.clear(CM.USER_DETAILS)
-    },
-
     async authenticate (credentials) {
         return await axios.post(CM.LOGIN, credentials)
             .then(response => {
                 const user = response.data.user
                 const token = response.data.token
                 if (user != null && token != null) {
-                    AlertService.successAlert('LOGIN SUCCESS', 'LOGIN')
                     localStorage.setItem(CM.TOKEN_NAME, token)
                     this.setHeader(token)
                     localStorage.setItem(CM.USER_DETAILS, JSON.stringify(user))
+                    AlertService.successAlert('LOGIN SUCCESS', 'LOGIN')
                     return user
                 }
                 return false
@@ -39,6 +26,32 @@ export const AuthenticationService = {
                 // console.log(error)
                 return false
             })
+    },
+
+    async logout() {
+        return await axios.get(CM.LOGOUT)
+            .then(response => {
+                this.deleteHeader();
+                this.clearStorage();
+                return true;
+            }).catch(error => {
+                return false;
+            });
+    },
+
+    setHeader (token) {
+        // axios.defaults.headers.common.Authorization = `Bearer ${token}`
+        axios.defaults.headers.common['Authorization'] =`Bearer ${token}`;
+    },
+
+    deleteHeader () {
+        // delete axios.defaults.headers.common.Authorization
+        delete axios.defaults.headers.common['Authorization'];
+    },
+
+    clearStorage () {
+        localStorage.clear(CM.TOKEN_NAME)
+        localStorage.clear(CM.USER_DETAILS)
     },
 
 

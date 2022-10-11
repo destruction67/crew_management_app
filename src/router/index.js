@@ -128,6 +128,8 @@ router.beforeEach(function(to, from, next) {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (localStorage.getItem(CM.TOKEN_NAME) != null) {
       next();
+      console.log('got the token')
+      // console.log(localStorage.getItem(CM.TOKEN_NAME))
       return;
     }
     next('/');

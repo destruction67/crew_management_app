@@ -57,6 +57,7 @@ ComponentConfig.baseComponent();
 AppConfig.appSweetAlert2();
 AppConfig.appProgressBar();
 AppConfig.elementFocus();
+// AppConfig.appAxios()
 
 GlobalService.initializeAxios()
 AlertService.initializeSwal()

@@ -49,16 +49,15 @@ export const vueAppMixin = {
       AlertService.errorAlert(message, actionType)
     },
 
-    userFullName() {
-      return this.authUser;
-    },
+    // userFullName() {
+    //   return this.authUser;
+    // },
 
   },
 
 
   computed: {
     ...mapGetters([
-      'authUser',
     ]),
   }
 }

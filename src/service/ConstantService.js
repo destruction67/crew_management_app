@@ -11,6 +11,7 @@ export const CM = {
         USER_DETAILS: 'cmUser',
         PREFIX: 'cm/',
         LOGIN: 'login',
+        LOGOUT: 'logout',
 
 
         // MASTERLIST

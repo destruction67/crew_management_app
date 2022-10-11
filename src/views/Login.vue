@@ -92,8 +92,8 @@
 
                     <div class="form-group">
                       <button class="btn btn-outline-dark">
-                        <font-awesome-icon v-if="!isReloading" icon="arrow-right-to-bracket"/>
-                        <font-awesome-icon v-if="isReloading" icon="spinner" spin/>
+                        <font-awesome-icon v-if="!isLoading" icon="arrow-right-to-bracket"/>
+                        <font-awesome-icon v-if="isLoading" icon="spinner" spin/>
 <!--                        <font-awesome-icon icon="circle-notch" spin class="ml-1" v-if="isReloading"/>-->
                         Login
                       </button>

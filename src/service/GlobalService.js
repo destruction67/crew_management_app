@@ -4,7 +4,7 @@ import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-import { API_URL, TOKEN_NAME } from './ConstantService'
+import { API_URL, CM } from './ConstantService'
 import { AlertService } from './AlertService'
 
 export const GlobalService = {
@@ -13,7 +13,7 @@ export const GlobalService = {
         axios.defaults.baseURL = API_URL
         axios.interceptors.request.use(
             (config) => {
-                const token = localStorage.getItem(TOKEN_NAME)
+                const token = localStorage.getItem(CM.TOKEN_NAME)
                 if (token) {
                     config.headers.Authorization = `Bearer ${token}`
                 }

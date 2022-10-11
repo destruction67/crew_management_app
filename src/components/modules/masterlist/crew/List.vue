@@ -449,7 +449,7 @@ export default {
 
   /** created **/
   async created() {
-    await this.set_crews(this.crewFormParam)
+    await this.set_crews()
   },
 
   /** destroyed **/

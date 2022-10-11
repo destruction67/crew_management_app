@@ -70,7 +70,7 @@ const actions = {
 
         }).catch((er) => {
             commit('set_is_loading', false)
-            AlertService.serverErrorAlert('Get flags');
+            AlertService.serverErrorAlert('Get crews');
             return false
         })
     },
