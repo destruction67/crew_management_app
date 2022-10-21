@@ -120,21 +120,21 @@
               </tr>
             </template>
             <template v-slot:table-body>
-              <tr>
-                <td>1</td>
-                <td scope="col">2</td>
-                <td scope="col">3</td>
-                <td scope="col">4</td>
-                <td scope="col">5</td>
-                <td scope="col">6</td>
+              <tr v-for="(crew, index) in crews" :key="crew.id">
+                <td>{{ index + 1 }}</td>
+                <td scope="col">{{ crew.crew_code }}</td>
+                <td scope="col">{{ crew.full_name }}</td>
+                <td scope="col"> - </td>
+                <td scope="col">{{ crew.created_by }} </td>
+                <td scope="col"> {{ crew.updated_by }} </td>
                 <td scope="col">
-                  7
+                  {{ crew.created_at }}
                 </td>
                 <td scope="col">
-                  8
+                  {{ crew.updated_at }}
                 </td>
                 <td scope="col">
-                  9
+                  {{ crew.status == 1 ? 'ACTIVE' : 'INACTIVE' }}
                 </td>
                 <td>
                   <button
