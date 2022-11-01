@@ -3,7 +3,7 @@
     <main>
     <router-view/>
     </main>
-    <base-app-footer></base-app-footer>
+<!--    <base-app-footer></base-app-footer>-->
   </div>
 </template>
 

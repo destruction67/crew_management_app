@@ -10,7 +10,7 @@ import {CM} from "@/service/ConstantService";
 import MasterList from "@/views/MasterList";
 import CrewMasterList from "@/views/masterlist/Crew";
 import CrewList from '@/components/modules/masterlist/crew/List';
-
+import CreateCrew from "@/components/modules/masterlist/crew/CreateCrew";
 
 Vue.use(VueRouter)
 
@@ -54,6 +54,13 @@ const routes = [
                     name: 'CrewList',
                     component: CrewList,
                   },
+
+                  {
+                    path: 'create',
+                    name: 'CreateCrew',
+                    component: CreateCrew,
+                  },
+
                 ]
               },
             ]

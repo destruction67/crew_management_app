@@ -14,10 +14,7 @@
                 </div>
                 <div class="form-group ">
                   <button type="button" class="btn btn-primary btn-xs"
-                          data-toggle="modal"
-                          data-target="#newCrewModal"
-                          data-backdrop="static"
-                          data-keyboard="false"
+                         @click="add_crew_route"
                   >
                     <font-awesome-icon icon="plus"/>
                     Add Crew
@@ -428,6 +425,12 @@ export default {
       'set_crews',
       'null_crews',
     ]),
+
+    add_crew_route() {
+      this.$router.push({name: 'CreateCrew'});
+    },
+
+
   },
 
   /**  computed  **/
