@@ -4,7 +4,7 @@ import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-import { API_URL, CM } from './ConstantService'
+import { API_URL, CM } from '../config/constants.config'
 import { AlertService } from './AlertService'
 
 export const GlobalService = {
@@ -72,27 +72,6 @@ export const GlobalService = {
     },
 
 
-    capitalizeProperties(value, except) {
-        try {
-            Object.keys(value).forEach(key => {
-                if (except) {
-                    if (except.includes(key)) return
-                }
-
-                if(value[key] && typeof value[key] === 'string') {
-                    if(!this.caseException.includes(key)) {
-                        value[key] = (value[key]) ? String(value[key]).toUpperCase() : '';
-                    }
-                } else {
-                    value[key] = this.capitalizeProperties(value[key]);
-                }
-            });
-        } catch (e) {
-            return value;
-        }
-        localStorage.setItem('idleSeconds', 0);
-        return value;
-    },
 
 
 }

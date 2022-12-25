@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { CM } from "@/service/ConstantService";
+import { CM } from "@/config/constants.config";
 import {GlobalService} from "@/service/GlobalService";
 import {AlertService} from "@/service/AlertService";
 // import {AlertService} from "@/service/AlertService";

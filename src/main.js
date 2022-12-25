@@ -25,6 +25,8 @@ import __ from 'lodash';
 import $ from 'jquery';
 
 import {GlobalService} from "@/service/GlobalService";
+// import {UtilityService} from "@/service/UtilityService";
+import {UtilityService} from "@/service/UtilityService";
 import {AlertService} from "@/service/AlertService";
 
 // IDLE SESSION START
@@ -60,6 +62,7 @@ AppConfig.elementFocus();
 // AppConfig.appAxios()
 
 GlobalService.initializeAxios()
+// UtilityService.initializeAxios()
 AlertService.initializeSwal()
 
 

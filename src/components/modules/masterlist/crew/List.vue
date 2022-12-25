@@ -69,31 +69,11 @@
         </div>
 
 
-        <!--        <div class="row">-->
-        <!--          &lt;!&ndash; searchbar &ndash;&gt;-->
-        <!--          <div class="col-md-3">-->
-        <!--            <div class="input-group mb-2 mr-sm-2">-->
-        <!--              <input-->
-        <!--                type="text"-->
-        <!--                class="form-control form-control-sm"-->
-        <!--                id="formdata-searchvalue"-->
-        <!--                placeholder="Search Principal ...">-->
-
-        <!--              <button class="btn btn-sm pmc-btn-prime" >-->
-        <!--                <font-awesome-icon icon="search"/>-->
-        <!--                search-->
-        <!--              </button>-->
-        <!--            </div>-->
-        <!--          </div>-->
-
-        <!--        </div>-->
-
         <!--  pagination      -->
         <div class="row py-1">
           <div class="col-md-9">
             <div class="row">
               <div class="col-5">
-                <!--                <pmc-pagination :page-object="principalPagination" @settingPage="set_this_page"></pmc-pagination>-->
               </div>
             </div>
           </div>
@@ -152,97 +132,6 @@
               </tr>
             </template>
           </base-table>
-        </div>
-      </div>
-    </div>
-
-    <!--  new crew modal   -->
-    <div class="modal fade" id="newCrewModal" tabindex="-1" role="dialog" aria-labelledby="newCrewModalLabel"
-         aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-
-          <div class="modal-header">
-            <h5 class="modal-title" id="newCrewModalLabel">NEW CREW</h5>
-          </div>
-
-          <div class="modal-body">
-            <div class="row ml-1">
-              <div class="col-md-12 text-left ml-2">
-                <!-- new code -->
-                <div class="form-group row">
-                  <label class="col-sm-3 col-form-label">CODE</label>
-                  <span class="col-form-label">:</span>
-                  <div class="col-sm-5">
-                    <input type="text"
-                           class="form-control form-control-sm"
-                           placeholder="---"
-                    />
-                  </div>
-                </div>
-
-                <!-- new  name -->
-                <div class="form-group row mt-2">
-                  <label class="col-sm-3 col-form-label">NAME</label>
-                  <span class="col-form-label">:</span>
-                  <div class="col-sm-8">
-                    <input
-                        type="text"
-                        class="form-control form-control-sm"
-                        placeholder="---"
-                    />
-                  </div>
-                </div>
-
-                <!-- new  address-->
-                <div class="form-group row mt-2">
-                  <label class="col-sm-3 col-form-label">ADDRESS</label>
-                  <span class="col-form-label">:</span>
-                  <div class="col-sm-8">
-                    <input
-                        type="text"
-                        class="form-control form-control-sm"
-                        placeholder="---"
-                    />
-                  </div>
-                </div>
-
-
-                <!--   status -->
-                <div class="form-group row mt-2">
-                  <label class="col-sm-3 col-form-label">STATUS</label>
-                  <span class="col-form-label">:</span>
-                  <div class="col-sm-5">
-                    <input
-                        type="checkbox"
-                        class="form-check form-check-inline ml-2 mt-2"
-                        placeholder="---"
-                    />
-                    <span> ACTIVE</span>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="modal-footer">
-            <button
-                type="button"
-                class="btn btn-sm pmc-btn-tertia">
-              <font-awesome-icon icon="save"/>
-              SAVE
-            </button>
-
-            <button
-                type="button"
-                class="btn btn-sm pmc-btn-second"
-                data-dismiss="modal">
-              <font-awesome-icon icon="undo"/>
-              CLOSE
-            </button>
-
-          </div>
         </div>
       </div>
     </div>
@@ -341,26 +230,26 @@
 
           <div class="modal-footer">
             <button type="button"
-                    class="btn btn-sm pmc-bg-warning">
+                    class="btn btn-sm btn-warning">
               <font-awesome-icon icon="edit"/>
               EDIT
             </button>
 
             <button type="button"
-                    class="btn btn-sm pmc-btn-second"
+                    class="btn btn-sm btn-secondary"
                     data-dismiss="modal">
               <font-awesome-icon icon="undo"/>
               CLOSE
             </button>
 
             <button type="button"
-                    class="btn btn-sm pmc-btn-tertia"
+                    class="btn btn-sm btn-success"
             >
               <font-awesome-icon icon="save"/>
               SAVE
             </button>
 
-            <button type="button" class="btn btn-sm pmc-btn-danger">
+            <button type="button" class="btn btn-sm btn-danger">
               <font-awesome-icon icon="times"/>
               CANCEL
             </button>

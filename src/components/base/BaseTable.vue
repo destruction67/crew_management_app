@@ -1,7 +1,7 @@
 <template>
   <div class="row justify-content-center">
     <div class="col col-md">
-      <div class="table table-responsive pmc-table border-top" :style="{height : maxHeight+'px',width : maxWidth+'%'}">
+      <div class="table table-responsive cm-table border-top" :style="{height : maxHeight+'px',width : maxWidth+'%'}">
         <table class="table table-bordered table-sm text-center small sticky-header table-hover">
           <thead>
           <slot name="table-header"></slot>

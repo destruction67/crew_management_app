@@ -94,6 +94,25 @@ export const AlertService = {
     })
   },
 
+  //question
+  questionAlertService(_html,actionType = '',icon,__customCss){
+    return  Swal.fire({
+      title : `${actionType}`,
+      icon : `${icon}`,
+      // text : `${text}`,
+      html: `<pre class="ml-1 small ${__customCss}">${_html}</pre>`,
+      showCancelButton: true,
+      allowOutsideClick: false,
+      customClass : {
+        container : 'swal-container',
+        confirmButton: 'btn btn-primary font-weight-bolder',
+        cancelButton: 'btn btn-secondary font-weight-bolder',
+      }
+    }).then(r =>{
+      return r.value;
+    });
+  },
+
   async confirmUpdateAlert (message) {
     if (!message) message = 'Are you sure you want to update this record?'
     // eslint-disable-next-line no-undef
@@ -147,5 +166,45 @@ export const AlertService = {
       showConfirmButton: true,
       scrollbarPadding: false
     })
-  }
+  },
+
+
+  //error with response data service
+  errorWithResponseDataService(message = '',html,actionType = '', icon){
+    let iconParam = icon ? icon : `error`;
+    Swal.fire({
+      title : `${actionType}`,
+      icon : `${iconParam}`,
+      text : `${message}`,
+      html : `${html}`,
+      customClass:{
+        confirmButton: 'btn btn-primary font-weight-bolder',
+        cancelButton: 'btn btn-secondary font-weight-bolder',
+        container : 'swal-container'
+      },
+      showCancelButton : false,
+      allowOutsideClick : false
+    }).then(r =>{
+      return r.value;
+    });
+  },
+
+  warningActionService(text, actionType = ''){
+    Swal.fire({
+      title: `${actionType}`,
+      icon: `warning`,
+      text: `${text}`,
+      showCancelButton : false,
+      allowOutsideClick : false,
+      customClass : {
+        confirmButton: 'btn btn-warning font-weight-bolder',
+        container : 'swal-container'
+      }
+    }).then(r =>{
+      return r.value;
+
+    });
+  },
+
+
 }

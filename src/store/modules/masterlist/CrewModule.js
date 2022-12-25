@@ -1,7 +1,8 @@
 import axios from "axios";
-import {CM} from "@/service/ConstantService"
+import {CM} from "@/config/constants.config"
 import {AlertService} from "@/service/AlertService";
 import {GlobalService} from "@/service/GlobalService";
+import {UtilityService} from "@/service/UtilityService";
 
 const state = {
     crew: {},
@@ -32,6 +33,10 @@ const state = {
 const mutations = {
     set_crews(state, params) {
         state.crews = params
+    },
+
+    create_crew (state) {
+        state.newCrew = {};
     },
 
     set_crew(state, params) {
@@ -75,6 +80,17 @@ const actions = {
         })
     },
 
+    async create_crew({commit}, params) {
+        return axios.post(CM.CREW, params).then((r) => {
+            commit('create_crew', r.data);
+            return true;
+
+        }).catch((error) => {
+            UtilityService.generateResponseMessage(error, 'Create crew');
+            return false;
+        })
+    },
+
     reset_crew_pagination({commit}) {
         commit('set_crew_pagination')
     },
@@ -90,7 +106,7 @@ const actions = {
 
 
 const getters = {
-    crews: state => GlobalService.capitalizeProperties(state.crews),
+    crews: state => UtilityService.capitalizeProperties(state.crews),
 
     crewPagination: state => state.crewPagination,
     crewFormParam: state => state.crewFormParam,

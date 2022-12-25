@@ -1,6 +1,6 @@
 'use strict'
 
-import {SERVER_API_URL} from './ServerConstant';
+import {SERVER_API_URL} from './server-constant.config';
 
 export const API_URL = SERVER_API_URL;
 

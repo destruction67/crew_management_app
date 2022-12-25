@@ -1,6 +1,7 @@
-import {AuthenticationService} from "@/service/AuthenticationService";
-import {CM} from "@/service/ConstantService";
+import {AuthenticationService} from "@/config/authentication.config";
+import {CM} from "@/config/constants.config";
 import {GlobalService} from "@/service/GlobalService";
+import {UtilityService} from "@/service/UtilityService";
 
 const state = {
     user: false,
@@ -34,7 +35,7 @@ const actions = {
 
 
 const getters = {
-    user: state => GlobalService.capitalizeProperties(state.user),
+    user: state => UtilityService.capitalizeProperties(state.user),
 };
 
 

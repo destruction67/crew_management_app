@@ -2,15 +2,7 @@
   <div class="container-fluid bg-white">
     <div class="row py-2">
       <div class="col-md-12 text-left">
-<!--        <pmc-btn-->
-<!--            @buttonEvent="save_new_crew"-->
-<!--            :button-label="'Save'"-->
-<!--            :button-class="'btn btn-sm pmc-btn-tertia mr-2'">-->
-<!--          <template slot="button-icon">-->
-<!--            <font-awesome-icon icon="save"/>-->
-<!--          </template>-->
-<!--        </pmc-btn>-->
-        <button class="btn btn-success btn-sm">
+        <button class="btn btn-success btn-sm" @click="save">
           <font-awesome-icon icon="save"/>
           Save
         </button>
@@ -19,16 +11,6 @@
           <font-awesome-icon icon="undo"/>
           Go Back
         </button>
-
-<!--        <pmc-btn-->
-<!--            @buttonEvent="goBack"-->
-<!--            :button-class="'btn btn-sm btn-secondary'"-->
-<!--            :button-label="'Go Back'">-->
-<!--          <template slot="button-icon">-->
-<!--            <font-awesome-icon icon="undo"/>-->
-<!--          </template>-->
-<!--        </pmc-btn>-->
-
       </div>
     </div>
 
@@ -48,24 +30,16 @@
                   </div>
                 </div>
                 <div class="col-md-8 text-left mt-4">
-                  <input type="file" id="input-crew-img"  refs="crewInputImage"style="display: none;">
+                  <input type="file" id="input-crew-img" refs="crewInputImage" style="display: none;">
                   <div>
-                    <label for="input-crew-img" class="btn btn-sm small pmc-bg-warning">
+                    <label for="input-crew-img" class="btn btn-sm small btn-warning">
                       <font-awesome-icon icon="paperclip"/>
                       <small class="font-weight-bold">Attach Image</small>
                     </label>
                   </div>
 
                   <div v-if="crewImageBlob">
-<!--                    <pmc-btn-->
-<!--                        :button-label="'Cancel'"-->
-<!--                        :button-class="'btn btn-sm pmc-btn-danger'">-->
-<!--                      <template v-slot:button-icon>-->
-<!--                        <font-awesome-icon icon="times"/>-->
-<!--                      </template>-->
-<!--                    </pmc-btn>-->
-
-                    <button class="btn btn-sm pmc-btn-danger">
+                    <button class="btn btn-sm btn-danger">
                       <font-awesome-icon icon="times"/>
                     </button>
                   </div>
@@ -85,7 +59,9 @@
                            class="form-control form-control-sm"
                            id="first-name"
                            name="FirstName"
-                           placeholder="--">
+                           placeholder="--"
+                           v-model="newCrew.first_name"
+                    >
                   </div>
                 </div>
 
@@ -100,7 +76,9 @@
                            class="form-control form-control-sm"
                            id="middle-name"
                            name="MiddleName"
-                           placeholder="--">
+                           placeholder="--"
+                           v-model="newCrew.middle_name"
+                    >
                   </div>
                 </div>
 
@@ -115,7 +93,9 @@
                            class="form-control form-control-sm"
                            id="last-name"
                            name="lastName"
-                           placeholder="--">
+                           placeholder="--"
+                           v-model="newCrew.last_name"
+                    >
                   </div>
                 </div>
 
@@ -201,15 +181,15 @@
                   <label class="col-sm-4 col-form-label">Nationality</label>
                   <span>:</span>
                   <div class="col-sm-7">
-<!--                    <multi-select-->
-<!--                        v-model="newCrew.generalInfo.nationality"-->
-<!--                        :options="objNationalities"-->
-<!--                        :custom-label="nationalityNameLang"-->
-<!--                        :select-label="'Select Nationality'"-->
-<!--                        placeholder="Select Nationality"-->
-<!--                        label="Nationality"-->
-<!--                        track-by="id">-->
-<!--                    </multi-select>-->
+                    <!--                    <multi-select-->
+                    <!--                        v-model="newCrew.generalInfo.nationality"-->
+                    <!--                        :options="objNationalities"-->
+                    <!--                        :custom-label="nationalityNameLang"-->
+                    <!--                        :select-label="'Select Nationality'"-->
+                    <!--                        placeholder="Select Nationality"-->
+                    <!--                        label="Nationality"-->
+                    <!--                        track-by="id">-->
+                    <!--                    </multi-select>-->
                   </div>
                 </div>
 
@@ -364,15 +344,15 @@
                   <label for="first-name" class="col-sm-4 col-form-label">*Region</label>
                   <span>:</span>
                   <div class="col-sm-7">
-<!--                    <multi-select-->
-<!--                        :options="permanentRegions"-->
-<!--                        v-model="newCrew.addressAndContact.permanent.region"-->
-<!--                        :custom-label="regionNameLang"-->
-<!--                        :select-label="'Select Region'"-->
-<!--                        placeholder="Select Region"-->
-<!--                        label="Region"-->
-<!--                        track-by="regDesc">-->
-<!--                    </multi-select>-->
+                    <!--                    <multi-select-->
+                    <!--                        :options="permanentRegions"-->
+                    <!--                        v-model="newCrew.addressAndContact.permanent.region"-->
+                    <!--                        :custom-label="regionNameLang"-->
+                    <!--                        :select-label="'Select Region'"-->
+                    <!--                        placeholder="Select Region"-->
+                    <!--                        label="Region"-->
+                    <!--                        track-by="regDesc">-->
+                    <!--                    </multi-select>-->
                   </div>
                 </div>
 
@@ -380,15 +360,15 @@
                   <label for="first-name" class="col-sm-4 col-form-label">*City / Province</label>
                   <span>:</span>
                   <div class="col-sm-7">
-<!--                    <multi-select-->
-<!--                        :options="permanentProvinces"-->
-<!--                        v-model="newCrew.addressAndContact.permanent.province"-->
-<!--                        :custom-label="provinceNameLang"-->
-<!--                        :select-label="'Select Province'"-->
-<!--                        placeholder="Select Province"-->
-<!--                        label="Province"-->
-<!--                        track-by="provCode">-->
-<!--                    </multi-select>-->
+                    <!--                    <multi-select-->
+                    <!--                        :options="permanentProvinces"-->
+                    <!--                        v-model="newCrew.addressAndContact.permanent.province"-->
+                    <!--                        :custom-label="provinceNameLang"-->
+                    <!--                        :select-label="'Select Province'"-->
+                    <!--                        placeholder="Select Province"-->
+                    <!--                        label="Province"-->
+                    <!--                        track-by="provCode">-->
+                    <!--                    </multi-select>-->
                   </div>
                 </div>
 
@@ -396,15 +376,15 @@
                   <label for="first-name" class="col-sm-4 col-form-label">*City / Municipality</label>
                   <span>:</span>
                   <div class="col-sm-7">
-<!--                    <multi-select-->
-<!--                        :options="permanentCities"-->
-<!--                        v-model="newCrew.addressAndContact.permanent.city"-->
-<!--                        :custom-label="cityNameLang"-->
-<!--                        :select-label="'Select City'"-->
-<!--                        placeholder="Select City"-->
-<!--                        label="City"-->
-<!--                        track-by="cityCode">-->
-<!--                    </multi-select>-->
+                    <!--                    <multi-select-->
+                    <!--                        :options="permanentCities"-->
+                    <!--                        v-model="newCrew.addressAndContact.permanent.city"-->
+                    <!--                        :custom-label="cityNameLang"-->
+                    <!--                        :select-label="'Select City'"-->
+                    <!--                        placeholder="Select City"-->
+                    <!--                        label="City"-->
+                    <!--                        track-by="cityCode">-->
+                    <!--                    </multi-select>-->
                   </div>
                 </div>
 
@@ -412,15 +392,15 @@
                   <label for="first-name" class="col-sm-4 col-form-label">Barangay</label>
                   <span>:</span>
                   <div class="col-sm-7">
-<!--                    <multi-select-->
-<!--                        :options="permanentBarangays"-->
-<!--                        v-model="newCrew.addressAndContact.permanent.barangay"-->
-<!--                        :custom-label="brgyNameLang"-->
-<!--                        :select-label="'Select Barangay'"-->
-<!--                        placeholder="Select Barangay"-->
-<!--                        label="Barangay"-->
-<!--                        track-by="brgyCode">-->
-<!--                    </multi-select>-->
+                    <!--                    <multi-select-->
+                    <!--                        :options="permanentBarangays"-->
+                    <!--                        v-model="newCrew.addressAndContact.permanent.barangay"-->
+                    <!--                        :custom-label="brgyNameLang"-->
+                    <!--                        :select-label="'Select Barangay'"-->
+                    <!--                        placeholder="Select Barangay"-->
+                    <!--                        label="Barangay"-->
+                    <!--                        track-by="brgyCode">-->
+                    <!--                    </multi-select>-->
                   </div>
                 </div>
 
@@ -433,7 +413,8 @@
                         class="form-control form-control-sm"
                         id="permanent-description"
                         name="CrewRank"
-                        placeholder="--">
+                        placeholder="--"
+                        disabled>
                   </div>
                 </div>
 
@@ -507,15 +488,15 @@
                   <label for="first-name" class="col-sm-4 col-form-label">*Region</label>
                   <span>:</span>
                   <div class="col-sm-7">
-<!--                    <multi-select-->
-<!--                        :options="temporaryRegions"-->
-<!--                        v-model="newCrew.addressAndContact.temporary.region"-->
-<!--                        :custom-label="regionNameLang"-->
-<!--                        :select-label="'Select Region'"-->
-<!--                        placeholder="Select Region"-->
-<!--                        label="Region"-->
-<!--                        track-by="regCode">-->
-<!--                    </multi-select>-->
+                    <!--                    <multi-select-->
+                    <!--                        :options="temporaryRegions"-->
+                    <!--                        v-model="newCrew.addressAndContact.temporary.region"-->
+                    <!--                        :custom-label="regionNameLang"-->
+                    <!--                        :select-label="'Select Region'"-->
+                    <!--                        placeholder="Select Region"-->
+                    <!--                        label="Region"-->
+                    <!--                        track-by="regCode">-->
+                    <!--                    </multi-select>-->
                   </div>
                 </div>
 
@@ -523,15 +504,15 @@
                   <label for="first-name" class="col-sm-4 col-form-label">*City / Province</label>
                   <span>:</span>
                   <div class="col-sm-7">
-<!--                    <multi-select-->
-<!--                        :options="temporaryProvinces"-->
-<!--                        v-model="newCrew.addressAndContact.temporary.province"-->
-<!--                        :custom-label="provinceNameLang"-->
-<!--                        :select-label="'Select Province'"-->
-<!--                        placeholder="Select Province"-->
-<!--                        label="Province"-->
-<!--                        track-by="provCode">-->
-<!--                    </multi-select>-->
+                    <!--                    <multi-select-->
+                    <!--                        :options="temporaryProvinces"-->
+                    <!--                        v-model="newCrew.addressAndContact.temporary.province"-->
+                    <!--                        :custom-label="provinceNameLang"-->
+                    <!--                        :select-label="'Select Province'"-->
+                    <!--                        placeholder="Select Province"-->
+                    <!--                        label="Province"-->
+                    <!--                        track-by="provCode">-->
+                    <!--                    </multi-select>-->
                   </div>
                 </div>
 
@@ -539,15 +520,15 @@
                   <label for="first-name" class="col-sm-4 col-form-label">*City / Municipality</label>
                   <span>:</span>
                   <div class="col-sm-7">
-<!--                    <multi-select-->
-<!--                        :options="temporaryCities"-->
-<!--                        v-model="newCrew.addressAndContact.temporary.city"-->
-<!--                        :custom-label="cityNameLang"-->
-<!--                        :select-label="'Select City'"-->
-<!--                        placeholder="Select City"-->
-<!--                        label="City"-->
-<!--                        track-by="cityCode">-->
-<!--                    </multi-select>-->
+                    <!--                    <multi-select-->
+                    <!--                        :options="temporaryCities"-->
+                    <!--                        v-model="newCrew.addressAndContact.temporary.city"-->
+                    <!--                        :custom-label="cityNameLang"-->
+                    <!--                        :select-label="'Select City'"-->
+                    <!--                        placeholder="Select City"-->
+                    <!--                        label="City"-->
+                    <!--                        track-by="cityCode">-->
+                    <!--                    </multi-select>-->
                   </div>
                 </div>
 
@@ -555,15 +536,15 @@
                   <label for="first-name" class="col-sm-4 col-form-label">Barangay</label>
                   <span>:</span>
                   <div class="col-sm-7">
-<!--                    <multi-select-->
-<!--                        :options="temporaryBarangays"-->
-<!--                        v-model="newCrew.addressAndContact.temporary.barangay"-->
-<!--                        :custom-label="brgyNameLang"-->
-<!--                        :select-label="'Select Barangay'"-->
-<!--                        placeholder="Select Barangay"-->
-<!--                        label="Barangay"-->
-<!--                        track-by="brgyCode">-->
-<!--                    </multi-select>-->
+                    <!--                    <multi-select-->
+                    <!--                        :options="temporaryBarangays"-->
+                    <!--                        v-model="newCrew.addressAndContact.temporary.barangay"-->
+                    <!--                        :custom-label="brgyNameLang"-->
+                    <!--                        :select-label="'Select Barangay'"-->
+                    <!--                        placeholder="Select Barangay"-->
+                    <!--                        label="Barangay"-->
+                    <!--                        track-by="brgyCode">-->
+                    <!--                    </multi-select>-->
                   </div>
                 </div>
 
@@ -576,7 +557,9 @@
                         class="form-control form-control-sm"
                         id="temporary-description"
                         name="CrewRank"
-                        placeholder="--">
+                        placeholder="--"
+                        disabled
+                    >
                   </div>
                 </div>
               </div>
@@ -588,15 +571,15 @@
                   <label for="first-name" class="col-sm-4 col-form-label">Region</label>
                   <span>:</span>
                   <div class="col-sm-7">
-<!--                    <multi-select-->
-<!--                        :options="provRegions"-->
-<!--                        v-model="newCrew.addressAndContact.province.region"-->
-<!--                        :custom-label="regionNameLang"-->
-<!--                        :select-label="'Select Regions'"-->
-<!--                        placeholder="Select Regions"-->
-<!--                        label="Regions"-->
-<!--                        track-by="regDesc">-->
-<!--                    </multi-select>-->
+                    <!--                    <multi-select-->
+                    <!--                        :options="provRegions"-->
+                    <!--                        v-model="newCrew.addressAndContact.province.region"-->
+                    <!--                        :custom-label="regionNameLang"-->
+                    <!--                        :select-label="'Select Regions'"-->
+                    <!--                        placeholder="Select Regions"-->
+                    <!--                        label="Regions"-->
+                    <!--                        track-by="regDesc">-->
+                    <!--                    </multi-select>-->
                   </div>
                 </div>
 
@@ -604,15 +587,15 @@
                   <label for="first-name" class="col-sm-4 col-form-label">City / Province</label>
                   <span>:</span>
                   <div class="col-sm-7">
-<!--                    <multi-select-->
-<!--                        :options="provProvinces"-->
-<!--                        v-model="newCrew.addressAndContact.province.province"-->
-<!--                        :custom-label="provinceNameLang"-->
-<!--                        :select-label="'Select Province'"-->
-<!--                        placeholder="Select Province"-->
-<!--                        label="Province"-->
-<!--                        track-by="provDesc">-->
-<!--                    </multi-select>-->
+                    <!--                    <multi-select-->
+                    <!--                        :options="provProvinces"-->
+                    <!--                        v-model="newCrew.addressAndContact.province.province"-->
+                    <!--                        :custom-label="provinceNameLang"-->
+                    <!--                        :select-label="'Select Province'"-->
+                    <!--                        placeholder="Select Province"-->
+                    <!--                        label="Province"-->
+                    <!--                        track-by="provDesc">-->
+                    <!--                    </multi-select>-->
                   </div>
                 </div>
 
@@ -620,15 +603,15 @@
                   <label for="first-name" class="col-sm-4 col-form-label">City / Municipality</label>
                   <span>:</span>
                   <div class="col-sm-7">
-<!--                    <multi-select-->
-<!--                        :options="provCities"-->
-<!--                        v-model="newCrew.addressAndContact.province.city"-->
-<!--                        :custom-label="cityNameLang"-->
-<!--                        :select-label="'Select City'"-->
-<!--                        placeholder="Select City"-->
-<!--                        label="City"-->
-<!--                        track-by="cityDesc">-->
-<!--                    </multi-select>-->
+                    <!--                    <multi-select-->
+                    <!--                        :options="provCities"-->
+                    <!--                        v-model="newCrew.addressAndContact.province.city"-->
+                    <!--                        :custom-label="cityNameLang"-->
+                    <!--                        :select-label="'Select City'"-->
+                    <!--                        placeholder="Select City"-->
+                    <!--                        label="City"-->
+                    <!--                        track-by="cityDesc">-->
+                    <!--                    </multi-select>-->
                   </div>
                 </div>
 
@@ -636,15 +619,15 @@
                   <label for="first-name" class="col-sm-4 col-form-label">Barangay</label>
                   <span>:</span>
                   <div class="col-sm-7">
-<!--                    <multi-select-->
-<!--                        :options="provBarangays"-->
-<!--                        v-model="newCrew.addressAndContact.province.barangay"-->
-<!--                        :custom-label="brgyNameLang"-->
-<!--                        :select-label="'Select Barangay'"-->
-<!--                        placeholder="Select Barangay"-->
-<!--                        label="Barangay"-->
-<!--                        track-by="brgyCode">-->
-<!--                    </multi-select>-->
+                    <!--                    <multi-select-->
+                    <!--                        :options="provBarangays"-->
+                    <!--                        v-model="newCrew.addressAndContact.province.barangay"-->
+                    <!--                        :custom-label="brgyNameLang"-->
+                    <!--                        :select-label="'Select Barangay'"-->
+                    <!--                        placeholder="Select Barangay"-->
+                    <!--                        label="Barangay"-->
+                    <!--                        track-by="brgyCode">-->
+                    <!--                    </multi-select>-->
                   </div>
                 </div>
 
@@ -657,7 +640,9 @@
                         class="form-control form-control-sm"
                         id="provincial-description"
                         name="CrewRank"
-                        placeholder="--">
+                        placeholder="--"
+                        disabled
+                    >
                   </div>
                 </div>
               </div>
@@ -687,13 +672,15 @@
                     <select name="ChangeCode"
                             id="change-code"
                             class="custom-select custom-select-sm"
-                            style="font-size: 12px!important;">
+                            style="font-size: 12px!important;"
+                            disabled
+                    >
                       <option value="" disabled>--select changecode --</option>
                     </select>
-<!--                    <div :class="{'invalid-feedback':newCrew.tracking.applicantStatus != 4,'valid-feedback':newCrew.tracking.applicantStatus == 4}">-->
-<!--                      &lt;!&ndash;                      Cant change code until applicant was accepted.&ndash;&gt;-->
-<!--                      <span style="font-size: 10px;">{{newCrew.tracking.applicantStatus != 4 ? 'Cant change code until applicant was accepted.' : 'Looks good.'}}</span>-->
-<!--                    </div>-->
+                    <!--                    <div :class="{'invalid-feedback':newCrew.tracking.applicantStatus != 4,'valid-feedback':newCrew.tracking.applicantStatus == 4}">-->
+                    <!--                      &lt;!&ndash;                      Cant change code until applicant was accepted.&ndash;&gt;-->
+                    <!--                      <span style="font-size: 10px;">{{newCrew.tracking.applicantStatus != 4 ? 'Cant change code until applicant was accepted.' : 'Looks good.'}}</span>-->
+                    <!--                    </div>-->
                   </div>
 
                   <button type="button" class="btn btn-xs">
@@ -709,7 +696,9 @@
                     <select
                         name="CrewType"
                         id="crew-type"
-                        class="form-control form-control-sm">
+                        class="form-control form-control-sm"
+                        disabled
+                    >
                       <option value="" disabled>-- select --</option>
                     </select>
                   </div>
@@ -727,7 +716,9 @@
                     <select
                         name="ScholarType"
                         class="form-control form-control-sm"
-                        id="scholar-type">
+                        id="scholar-type"
+                        disabled
+                    >
                       <option value="" disabled>-- select --</option>
                     </select>
                   </div>
@@ -745,7 +736,9 @@
                     <select
                         name="ScholarProp"
                         class="form-control form-control-sm"
-                        id="scholar-prop">
+                        id="scholar-prop"
+                        disabled
+                    >
                       <option value="" disabled>-- select --</option>
                     </select>
                   </div>
@@ -764,7 +757,9 @@
                            class="form-control form-control-sm"
                            id="bridging-batch"
                            name="ScholarType"
-                           placeholder="--">
+                           placeholder="--"
+                           disabled
+                    >
                   </div>
                 </div>
 
@@ -781,7 +776,9 @@
                   <div class="col-sm-7">
                     <select
                         class="form-control form-control-sm"
-                        name="Rank" id="rank">
+                        name="Rank" id="rank"
+                        disabled
+                    >
                       <option value="" disabled>-- select --</option>
                     </select>
                   </div>
@@ -797,8 +794,8 @@
                   <label for="rank" class="col-sm-4 col-form-label">Status</label>
                   <span>:</span>
                   <div class="col-sm-6">
-                    <input type="checkbox" class="form-check-inline ml-2">
-<!--                    <label>{{ newCrew.crewInfo.status ? 'Active' : 'Inactive' }}</label>-->
+                    <input type="checkbox" class="form-check-inline ml-2" disabled>
+                    <!--                    <label>{{ newCrew.crewInfo.status ? 'Active' : 'Inactive' }}</label>-->
                   </div>
                 </div>
               </div>
@@ -814,7 +811,9 @@
                         class="form-control form-control-sm"
                         id="cover-all"
                         name="CrewType"
-                        placeholder="S/M/L">
+                        placeholder="S/M/L"
+                        disabled
+                    >
                   </div>
                 </div>
 
@@ -828,7 +827,9 @@
                         class="form-control form-control-sm"
                         id="jacket"
                         name="jacket"
-                        placeholder="S/M/L">
+                        placeholder="S/M/L"
+                        disabled
+                    >
                   </div>
                 </div>
 
@@ -842,7 +843,9 @@
                         class="form-control form-control-sm"
                         id="shoes"
                         name="Shoes"
-                        placeholder="6/7/8/ETCH">
+                        placeholder="6/7/8/ETCH"
+                        disabled
+                    >
                   </div>
                 </div>
 
@@ -856,7 +859,9 @@
                         class="form-control form-control-sm"
                         id="long-sleeves"
                         name="LongSleeves"
-                        placeholder="S/M/L">
+                        placeholder="S/M/L"
+                        disabled
+                    >
                   </div>
                 </div>
 
@@ -870,7 +875,9 @@
                         class="form-control form-control-sm"
                         id="short-sleeves"
                         name="ShortSleeves"
-                        placeholder="S/M/L">
+                        placeholder="S/M/L"
+                        disabled
+                    >
                   </div>
                 </div>
 
@@ -884,7 +891,9 @@
                         class="form-control form-control-sm"
                         id="pants"
                         name="Pants"
-                        placeholder="S/M/L">
+                        placeholder="S/M/L"
+                        disabled
+                    >
                   </div>
                 </div>
 
@@ -898,7 +907,9 @@
                         class="form-control form-control-sm"
                         id="uniform"
                         name="Uniform"
-                        placeholder="S/M/L">
+                        placeholder="S/M/L"
+                        disabled
+                    >
                   </div>
                 </div>
               </div>
@@ -930,7 +941,9 @@
                     <input type="date"
                            id="date-applied"
                            name="DateApplied"
-                           class="form-control form-control-sm">
+                           class="form-control form-control-sm"
+                           disabled
+                    >
                   </div>
 
                   <button class="btn btn-xs">
@@ -949,7 +962,9 @@
                     <select
                         name="ApplicantType"
                         id="applicant-type"
-                        class="form-control form-control-sm">
+                        class="form-control form-control-sm"
+                        disabled
+                    >
                       <option value="" disabled>-- select --</option>
                     </select>
                   </div>
@@ -969,7 +984,9 @@
                     <select
                         name="EndorsementType"
                         id="endorsement-type"
-                        class="form-control form-control-sm">
+                        class="form-control form-control-sm"
+                        disabled
+                    >
                       <option value="" disabled>-- select --</option>
                     </select>
                   </div>
@@ -987,11 +1004,6 @@
                   </label>
                   <span>:</span>
                   <div class="col-sm-7">
-<!--                    <pmc-modal-btn-->
-<!--                        @modalButtonEvent="search_crew"-->
-<!--                        v-if="!thisCrewEndorser" :button-label="'Select crew endorser'"-->
-<!--                        :button-class="{'form-control form-control-sm is-invalid' : !newCrew.tracking.endorsedBy,'form-control form-control-sm is-valid' : newCrew.tracking.endorsedBy}" :target-modal="crewEndorserModal">-->
-<!--                    </pmc-modal-btn>-->
                     <input type="text" class="form-control form-control-sm" readonly>
                   </div>
 
@@ -1011,7 +1023,9 @@
                     <input type="text"
                            id="endorse-by-others"
                            name="EndorseByOthers"
-                           class="form-control form-control-sm"/>
+                           class="form-control form-control-sm"
+                           disabled
+                    />
                   </div>
                   <button class="btn btn-xs">
                     <font-awesome-icon icon="times"/>
@@ -1030,33 +1044,15 @@
                     <input
                         type="date"
                         id="date-available"
-                        name="DateAvailable" class="form-control form-control-sm">
+                        name="DateAvailable" class="form-control form-control-sm"
+                        disabled
+                    >
                   </div>
                   <button class="btn btn-xs">
                     <font-awesome-icon icon="times"/>
                   </button>
                 </div>
 
-                <!--  pmc office -->
-                <div class="form-group row mt-1">
-                  <label for="pmc-office"
-                         class="col-sm-4 col-form-label">
-                    *Pmc Office
-                  </label>
-                  <span>:</span>
-                  <div class="col-sm-5">
-                    <select
-                        name="PmcOffice"
-                        id="pmc-office"
-                        class="form-control form-control-sm">
-                      <option value="" disabled>-- select --</option>
-                    </select>
-                  </div>
-
-                  <button class="btn btn-xs">
-                    <font-awesome-icon icon="times"/>
-                  </button>
-                </div>
 
                 <!--  applicant status -->
                 <div class="form-group row mt-1">
@@ -1069,7 +1065,9 @@
                     <select
                         name="PmcOffice"
                         id="applicant-status"
-                        class="form-control form-control-sm">
+                        class="form-control form-control-sm"
+                        disabled
+                    >
                       <option value="" disabled>-- select --</option>
                     </select>
                   </div>
@@ -1087,7 +1085,9 @@
                         placeholder="Remarks here.."
                         class="form-control form-control"
                         rows="4"
-                        style="resize: none;">
+                        style="resize: none;"
+                        disabled
+                    >
                     </textarea>
                   </div>
                 </div>
@@ -1100,57 +1100,6 @@
       </div>
     </div>
 
-    <!-- modal for crew  -->
-<!--    <pmc-modal :id="crewEndorserModal" xl_height lg_width @closingEvent="reset_this_form_endorser">-->
-<!--      <template slot="custom-header">-->
-<!--        <h5 class="font-weight-bold">Search Crew Endorser</h5>-->
-<!--      </template>-->
-<!--      <template slot="custom-body">-->
-<!--        <div class="col-md-6">-->
-<!--          <div class="input-group mb-2 mr-sm-2">-->
-<!--            <input-->
-<!--                v-model="formSearchParams.searchValue"-->
-<!--                type="text"-->
-<!--                class="form-control"-->
-<!--                id="formdata-searchvalue"-->
-<!--                @keypress="search_crew"-->
-<!--                placeholder="Search Crew here">-->
-
-<!--            <pmc-btn-->
-<!--                @buttonEvent="search_crew"-->
-<!--                :button-label="'search'"-->
-<!--                :button-class="'btn btn-sm pmc-btn-prime'">-->
-<!--              <template slot="button-icon">-->
-<!--                <font-awesome-icon icon="search"/>-->
-<!--              </template>-->
-<!--            </pmc-btn>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        <div class="col-md-12">-->
-<!--          <pmc-pagination :page-object="searchCrewPagination" v-on:settingPage="set_this_page"></pmc-pagination>-->
-<!--        </div>-->
-
-<!--        <pmc-table>-->
-<!--          <template v-slot:table-header>-->
-<!--            <tr>-->
-<!--              <th style="width: 5%;" scope="col">Rank</th>-->
-<!--              <th style="width: 60%;">Name</th>-->
-<!--            </tr>-->
-<!--          </template>-->
-
-<!--          <template slot="table-body">-->
-<!--            <tr v-for="(crew,index) in crews" :key="crew.id" @click="set_endorse_by(crew.id)">-->
-<!--              <td>{{ crew.rank }}</td>-->
-<!--              <td class="text-left pl-4">{{ crew.fullName }}</td>-->
-<!--            </tr>-->
-<!--          </template>-->
-<!--        </pmc-table>-->
-<!--        -->
-<!--        -->
-<!--      </template>-->
-<!--    </pmc-modal>-->
-
   </div>
 </template>
 
@@ -1158,6 +1107,7 @@
 import {vueAppMixin} from "@/mixins/vueAppMixin";
 import noImg from '../../../../assets/noPhoto.jpg';
 import {mapGetters, mapActions} from "vuex";
+import {AlertService} from "@/service/AlertService";
 
 export default {
   name: "CreateCrew",
@@ -1165,10 +1115,11 @@ export default {
   mixins: [vueAppMixin],
 
   /** data **/
-  data () {
+  data() {
     return {
       crewNoImageBlob: noImg,
       crewImageBlob: null,
+      newCrew: {},
       bloodTypes: [
         {
           id: 1,
@@ -1250,14 +1201,33 @@ export default {
 
   methods: {
 
-  },
-
-  computed:{
-    ...mapGetters([
-
+    ...mapActions([
+      'create_crew',
     ]),
 
-    thisCrewImageBlob () {
+    async save() {
+      let __create = AlertService.questionAlertService('Are you sure you want to add this record', 'New Crew', 'question')
+      if (await __create) {
+
+        let params = {
+          last_name: this.newCrew.last_name ? this.newCrew.last_name : '',
+          first_name: this.newCrew.first_name, // this is required
+          middle_name: this.newCrew.middle_name,
+        };
+
+        let newCrew = await this.create_crew(params);
+        if (newCrew) {
+          await AlertService.successAlert('Create crew record successful', 'Create Crew');
+          this.newCrew = {};
+        }
+      }
+    },
+  },
+
+  computed: {
+    ...mapGetters([]),
+
+    thisCrewImageBlob() {
       return this.crewImageBlob ? this.crewImageBlob : this.crewNoImageBlob
     },
 

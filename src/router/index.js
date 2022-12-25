@@ -4,7 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import Login from "@/views/Login";
 import Main from "@/views/Main";
 import Home from "@/views/main/Home";
-import {CM} from "@/service/ConstantService";
+import {CM} from "@/config/constants.config";
 
 // Masterlist
 import MasterList from "@/views/MasterList";

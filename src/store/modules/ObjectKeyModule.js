@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ConstantService } from "@/service/ConstantService"
+import { ConstantService } from "@/config/constants.config"
 import {AlertService} from "@/service/AlertService";
 
 const state = {

@@ -30,6 +30,10 @@ export const vueAppMixin = {
       // console.log('go back')
     },
 
+    hideModal (modalName = null) {
+      return $(`#` + `${modalName}`).modal('hide')
+    },
+
     async confirmCreateAlert (message) {
       return await AlertService.confirmCreateAlert(message)
     },
