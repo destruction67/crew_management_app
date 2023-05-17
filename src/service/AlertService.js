@@ -64,7 +64,7 @@ export const AlertService = {
     serverErrorAlert.fire({
       title: 'SERVER ERROR',
       text: `ERROR ON ${message}`,
-      footer: '<a href="mailto:albert.arbowez@elitesdsi.com">PLEASE CONTACT SYSTEM ADMINISTRATOR</a>',
+      footer: '<a href="">PLEASE CONTACT SYSTEM ADMINISTRATOR</a>',
       scrollbarPadding: false
     })
   },

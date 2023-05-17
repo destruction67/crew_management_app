@@ -49,7 +49,7 @@ global.__ = __;
 
 IconConfig.config();
 
-Vue.use(require('vue-moment'));
+Vue.use(require('vue-moment')); // date
 
 ComponentConfig.pluginComponents();
 ComponentConfig.baseComponent();

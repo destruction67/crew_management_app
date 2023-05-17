@@ -107,13 +107,15 @@
                            class="form-control form-control-sm"
                            id="suffix-name"
                            name="SuffixName"
-                           placeholder="--">
+                           placeholder="--"
+                           v-model="newCrew.suffix_name"
+                    >
                   </div>
                 </div>
 
 
                 <div class="form-group row mt-1">
-                  <label for="birth-place" class="col-sm-4 col-form-label">Birthd Place</label>
+                  <label for="birth-place" class="col-sm-4 col-form-label">Birth Place</label>
                   <span>:</span>
                   <div class="col-sm-7">
                     <input type="text"
@@ -216,7 +218,9 @@
                            id="birthdate"
                            name="Birthdate"
                            onkeydown="event.preventDefault()"
-                           placeholder="--">
+                           placeholder="--"
+                           v-model="newCrew.birthdate"
+                    >
                   </div>
                   <button
                       class="btn btn-xs">
@@ -1213,6 +1217,8 @@ export default {
           last_name: this.newCrew.last_name ? this.newCrew.last_name : '',
           first_name: this.newCrew.first_name, // this is required
           middle_name: this.newCrew.middle_name,
+          suffix_name: this.newCrew.suffix_name,
+          birthdate: this.newCrew.birthdate,
         };
 
         let newCrew = await this.create_crew(params);

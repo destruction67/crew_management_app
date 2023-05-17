@@ -134,8 +134,8 @@ export default {
       icon: 'eye-slash',
       isSelected: 'user',
       // authentication: {
-      //   username: 'elitesystemadmin',
-      //   password: '$!3L!t3@2018$!$',
+      //   username: '',
+      //   password: '',
       //   is_staff: '',
       // },
       error: null,
